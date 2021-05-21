@@ -1,0 +1,73 @@
+CREATE TABLE Baggages (
+  Bag_ID INT PRIMARY KEY AUTO_INCREMENT
+, Passenger_ID FOREIGN KEY
+, Date_time
+, Bag_status_code
+);
+
+CREATE TABLE Baggages_records (
+  Bag_record_ID INT PRIMARY KEY
+, Bag_ID FOREIGN KEY
+, Bag_status_code FOREIGN KEY
+, event_ID FOREIGN KEY
+, Date_time
+);
+
+CREATE TABLE Passengers (
+  Passenger_ID INT PRIMARY KEY
+, purch_id FOREIGN KEY
+, Passenger_details
+);
+
+CREATE TABLE Passenger_records (
+  Passenger_record_ID INT PRIMARY KEY
+, passenger_ID FOREIGN KEY
+, passenger_status_code FOREIGN KEY
+, Date_time
+);
+
+CREATE TABLE Events (
+  Event_ID INT PRIMARY KEY
+, location_ID FOREIGN KEY
+, platform_type_code FOREIGN KEY
+, passenger_record_ID FOREIGN KEY
+, Date_time
+);
+
+CREATE TABLE Bag_status (
+  bag_status_code INT PRIMARY KEY
+, Bag_status_description
+);
+
+CREATE TABLE Locations (
+  location_ID INT PRIMARY KEY
+, Location_description
+);
+
+CREATE TABLE Documents (
+  Document_ID INT PRIMARY KEY
+, event_type FOREIGN KEY
+, Document_type
+, Document_date_time
+);
+
+CREATE TABLE Passenger_status (
+  item_id INT PRIMARY KEY
+, passenger_status_code FOREIGN KEY
+, Passenger_status_description
+);
+
+CREATE TABLE Platform_types (
+  platform_type_code INT PRIMARY KEY
+, Platform_type_name
+, Platform_type_description
+);
+
+CREATE TABLE Flight_data (
+  Flight_ID INT PRIMARY KEY
+, Airline_name
+, Departure_airport
+, Arrival_airport
+, Departure_date_time
+, Arrival_date_time
+);
